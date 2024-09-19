@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import "@contentstack/live-preview-utils/dist/main.css";
-
 const { data: page, refresh } = await useGetPage("/");
 
 onMounted(() => {
