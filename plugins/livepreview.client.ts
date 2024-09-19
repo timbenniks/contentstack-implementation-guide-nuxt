@@ -1,6 +1,5 @@
 import type { Stack } from "@contentstack/delivery-sdk/dist/types/src/lib/stack";
-import type { IStackSdk } from "@contentstack/live-preview-utils/dist/src/utils/types";
-import ContentstackLivePreview from "@contentstack/live-preview-utils";
+import ContentstackLivePreview, { type IStackSdk } from "@contentstack/live-preview-utils";
 
 export default defineNuxtPlugin((nuxtApp) => {
   const { $stack, $apiKey, $region, $environment, $preview } = nuxtApp
