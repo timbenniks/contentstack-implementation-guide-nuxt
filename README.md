@@ -1,6 +1,6 @@
 # Contentstack SDK implemenation guide: Nuxt
 
-This is a bare-bones example to connect Nuxt to Contentstack using the app directory approach.
+This is a bare-bones example to connect Nuxt to Contentstack.
 This example covers the following items:
 
 - SDK initialization
