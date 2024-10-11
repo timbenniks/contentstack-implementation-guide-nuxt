@@ -1,7 +1,16 @@
 {
-  "name": "nuxt-app",
+  "name": "contentstack-implementation-guide-nuxt",
   "private": true,
+  "version": "0.0.0",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/timbenniks/contentstack-implementation-guide-nuxt"
+  },
+  "description": "contentstack-implementation-guide-nuxt",
+  "author": "Tim Benniks <tbenniks@gmail.com>",
+  "homepage": "https://timbenniks.dev",
+  "license": "MIT",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
