@@ -21,7 +21,7 @@
   "dependencies": {
     "@contentstack/delivery-sdk": "^4.3.0",
     "@contentstack/live-preview-utils": "^2.0.4",
-    "@nuxtjs/tailwindcss": "^6.12.1",
+    "@nuxtjs/tailwindcss": "^6.12.2",
     "nuxt": "^3.13.2",
     "vue": "latest",
     "vue-router": "latest"

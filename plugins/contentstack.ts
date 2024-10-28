@@ -1,4 +1,6 @@
 import contentstack, { Region } from "@contentstack/delivery-sdk"
+import type { Stack } from "@contentstack/delivery-sdk/dist/types/src/lib/stack";
+import ContentstackLivePreview, { type IStackSdk } from "@contentstack/live-preview-utils";
 
 export default defineNuxtPlugin((nuxtApp) => {
   const {
@@ -22,13 +24,29 @@ export default defineNuxtPlugin((nuxtApp) => {
     }
   });
 
+  if (preview) {
+    ContentstackLivePreview.init({
+      ssr: false,
+      enable: preview ? true : false,
+      stackSdk: (stack as Stack).config as IStackSdk,
+      stackDetails: {
+        apiKey: apiKey,
+        environment: environment,
+      },
+      clientUrlParams: {
+        host: region === "EU" ? "eu-app.contentstack.com" : "app.contentstack.com",
+      },
+      editButton: {
+        enable: true,
+      }
+    });
+  }
+
   return {
     provide: {
       stack,
-      apiKey,
       preview,
-      region,
-      environment
+      ContentstackLivePreview
     },
   };
 });
