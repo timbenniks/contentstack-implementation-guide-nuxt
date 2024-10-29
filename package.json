@@ -1,6 +1,6 @@
 {
   "name": "contentstack-implementation-guide-nuxt",
-  "private": true,
+  "private": false,
   "version": "0.0.0",
   "type": "module",
   "repository": {
