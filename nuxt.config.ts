@@ -7,10 +7,6 @@ export default defineNuxtConfig({
     compatibilityVersion: 4,
   },
 
-  build: {
-    transpile: process.env.NODE_ENV === 'production' ? ['tslib', '@contentstack/delivery-sdk'] : [],
-  },
-
   modules: ['@nuxtjs/tailwindcss'],
 
   runtimeConfig: {

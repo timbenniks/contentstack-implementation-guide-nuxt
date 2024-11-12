@@ -25,6 +25,20 @@ export interface File {
   $: any;
 }
 
+export interface Block {
+  _version?: number;
+  _metadata: any;
+  $: any;
+  title?: string;
+  copy?: string;
+  image?: File | null;
+  layout?: ("image_left" | "image_right") | null;
+}
+
+export interface Blocks {
+  block: Block;
+}
+
 export interface Page {
   uid: string;
   $: any;
@@ -34,4 +48,5 @@ export interface Page {
   description?: string;
   image?: File | null;
   rich_text?: string;
+  blocks?: Blocks[];
 }

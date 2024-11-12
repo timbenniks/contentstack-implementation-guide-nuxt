@@ -1,5 +1,4 @@
 import contentstack, { Region } from "@contentstack/delivery-sdk"
-import type { Stack } from "@contentstack/delivery-sdk/dist/types/src/lib/stack";
 import ContentstackLivePreview, { type IStackSdk } from "@contentstack/live-preview-utils";
 
 export default defineNuxtPlugin((nuxtApp) => {
@@ -24,11 +23,12 @@ export default defineNuxtPlugin((nuxtApp) => {
     }
   });
 
-  if (preview) {
+  if (preview && import.meta.client) {
     ContentstackLivePreview.init({
       ssr: false,
+      mode: "builder",
       enable: preview ? true : false,
-      stackSdk: (stack as Stack).config as IStackSdk,
+      stackSdk: stack.config as IStackSdk,
       stackDetails: {
         apiKey: apiKey,
         environment: environment,
