@@ -1,9 +1,16 @@
-import contentstack, { QueryOperation } from "@contentstack/delivery-sdk";
+import contentstack, { QueryOperation, type LivePreviewQuery } from "@contentstack/delivery-sdk";
 import type { Page } from "~/types";
 
 export const useGetPage = async (url: string) => {
   const { data, status, refresh } = await useAsyncData(`page-${url}`, async () => {
     const { $preview, $stack } = useNuxtApp()
+
+    if ($preview) {
+      const route = useRoute()
+      const qs = toRaw(route.query)
+      $stack.livePreviewQuery(qs as unknown as LivePreviewQuery)
+    }
+
     const result = await $stack
       .contentType("page")
       .entry()
