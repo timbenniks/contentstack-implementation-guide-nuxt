@@ -4,8 +4,10 @@ import type { Page } from "~/types";
 export const useGetPage = async (url: string) => {
   const { data, status, refresh } = await useAsyncData(`page-${url}`, async () => {
     const { $preview, $stack } = useNuxtApp()
+    const route = useRoute()
+    const qs = toRaw(route.query)
 
-    if ($preview) {
+    if ($preview && qs?.live_preview) {
       const route = useRoute()
       const qs = toRaw(route.query)
       $stack.livePreviewQuery(qs as unknown as LivePreviewQuery)
@@ -18,6 +20,7 @@ export const useGetPage = async (url: string) => {
       .where("url", QueryOperation.EQUALS, url)
       .find<Page>();
 
+
     if (result.entries) {
       const entry = result.entries[0]
 
@@ -27,6 +30,7 @@ export const useGetPage = async (url: string) => {
 
       return entry;
     }
+
   });
 
   return { data, status, refresh }
