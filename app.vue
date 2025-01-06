@@ -6,9 +6,9 @@ import VB_EmptyBlockParentClass from "@contentstack/live-preview-utils";
 const { data: page, refresh } = await useGetPage("/");
 
 onMounted(() => {
-
   const { $preview, $ContentstackLivePreview } = useNuxtApp();
-  $preview && $ContentstackLivePreview.onEntryChange(refresh);
+  const livePreview = $ContentstackLivePreview as unknown as ContentstackLivePreview;
+  $preview && livePreview.onEntryChange(refresh);
 });
 </script>
 <template>
