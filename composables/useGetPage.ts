@@ -27,13 +27,12 @@ export const useGetPage = async (url: string) => {
     // Check if there are any entries in the result
     if (result.entries) {
       const entry = result.entries[0] // Get the first entry from the result
-
         // If preview mode is enabled, add editable tags to the entry
       if ($preview) {
         contentstack.Utils.addEditableTags(entry as Page, 'page', true);
       }
 
-      return entry;
+      return entry; // Return the entry as the data
     }
 
   });
