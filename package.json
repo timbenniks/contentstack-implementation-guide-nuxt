@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@contentstack/delivery-sdk": "^4.4.3",
-    "@contentstack/live-preview-utils": "^3.0.1",
+    "@contentstack/live-preview-utils": "^3.0.2",
     "@nuxtjs/tailwindcss": "^6.12.2",
     "nuxt": "^3.14.1592",
     "vue": "latest",
