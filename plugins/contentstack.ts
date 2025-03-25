@@ -1,5 +1,6 @@
 import contentstack, { Region } from "@contentstack/delivery-sdk"
 import ContentstackLivePreview, { type IStackSdk } from "@contentstack/live-preview-utils";
+import { getContentstackEndpoints, getRegionForString } from "@timbenniks/contentstack-endpoints";
 
 export default defineNuxtPlugin((nuxtApp) => {
   const {
@@ -11,6 +12,9 @@ export default defineNuxtPlugin((nuxtApp) => {
     preview
   } = nuxtApp.$config.public;
 
+  const regionEnum: Region = getRegionForString(region)
+  const endpoints = getContentstackEndpoints(regionEnum, true)
+
   const stack = contentstack.stack({
     apiKey,
     deliveryToken,
@@ -19,7 +23,7 @@ export default defineNuxtPlugin((nuxtApp) => {
     live_preview: {
       enable: preview ? true : false,
       preview_token: previewToken,
-      host: region === 'EU' ? "eu-rest-preview.contentstack.com" : "rest-preview.contentstack.com",
+      host: endpoints.preview
     }
   });
 
@@ -34,10 +38,11 @@ export default defineNuxtPlugin((nuxtApp) => {
         environment: environment,
       },
       clientUrlParams: {
-        host: region === "EU" ? "eu-app.contentstack.com" : "app.contentstack.com",
+        host: endpoints.application
       },
       editButton: {
         enable: true,
+        exclude: ["outsideLivePreviewPortal"]
       }
     });
   }

@@ -1,7 +1,7 @@
 {
   "name": "contentstack-implementation-guide-nuxt",
   "private": false,
-  "version": "0.0.7",
+  "version": "0.0.9",
   "type": "module",
   "repository": {
     "type": "git",
@@ -19,10 +19,11 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@contentstack/delivery-sdk": "^4.5.0",
-    "@contentstack/live-preview-utils": "^3.1.1",
-    "@nuxtjs/tailwindcss": "^6.13.1",
-    "nuxt": "^3.15.4",
+    "@contentstack/delivery-sdk": "^4.6.0",
+    "@contentstack/live-preview-utils": "^3.1.2",
+    "@nuxtjs/tailwindcss": "^6.13.2",
+    "@timbenniks/contentstack-endpoints": "^1.0.8",
+    "nuxt": "^3.16.1",
     "vue": "latest",
     "vue-router": "latest"
   }
