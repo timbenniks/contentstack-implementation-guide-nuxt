@@ -1,7 +1,7 @@
 {
   "name": "contentstack-implementation-guide-nuxt",
   "private": false,
-  "version": "0.0.9",
+  "version": "0.0.10",
   "type": "module",
   "repository": {
     "type": "git",
@@ -19,7 +19,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@contentstack/delivery-sdk": "^4.6.0",
+    "@contentstack/delivery-sdk": "^4.6.1",
     "@contentstack/live-preview-utils": "^3.1.2",
     "@nuxtjs/tailwindcss": "^6.13.2",
     "@timbenniks/contentstack-endpoints": "^1.0.8",
