@@ -19,7 +19,7 @@ export default defineNuxtPlugin((nuxtApp) => {
     apiKey,
     deliveryToken,
     environment,
-    region: region === 'EU' ? Region.EU : Region.US,
+    region: regionEnum,
     live_preview: {
       enable: preview ? true : false,
       preview_token: previewToken,
