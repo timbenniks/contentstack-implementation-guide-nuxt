@@ -7,6 +7,7 @@ export interface PublishDetails {
   time: string;
   user: string;
 }
+
 // File object - Represents a file in Contentstack
 export interface File {
   uid: string;
@@ -19,14 +20,30 @@ export interface File {
   tags: string[];
   filename: string;
   url: string;
-  ACL: any[];
+  ACL: any[] | object;
   is_dir: boolean;
   parent_uid: string;
   _version: number;
   title: string;
+  _metadata?: object;
   publish_details: PublishDetails;
   $: any;
 }
+
+// Link object - Represents a hyperlink in Contentstack
+export interface Link {
+  title: string;
+  href: string;
+}
+
+// Taxonomy object - Represents a taxonomy in Contentstack
+export interface Taxonomy {
+  taxonomy_uid: string;
+  max_terms?: number;
+  mandatory: boolean;
+  non_localizable: boolean;
+}
+
 // Block object - Represents a modular block in Contentstack
 export interface Block {
   _version?: number;
@@ -41,6 +58,7 @@ export interface Block {
 export interface Blocks {
   block: Block;
 }
+
 // Page object - Represents a page in Contentstack
 export interface Page {
   uid: string;
@@ -52,8 +70,4 @@ export interface Page {
   image?: File | null;
   rich_text?: string;
   blocks?: Blocks[];
-}
-
-interface ContentstackLivePreview {
-  onEntryChange(callback: () => void): void;
 }

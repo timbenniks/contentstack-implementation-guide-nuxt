@@ -1,15 +1,14 @@
 {
-  "name": "contentstack-implementation-guide-nuxt",
+  "name": "kickstart-nuxt",
+  "version": "1.0.0",
   "private": false,
-  "version": "0.0.5",
-  "type": "module",
   "repository": {
     "type": "git",
-    "url": "https://github.com/timbenniks/contentstack-implementation-guide-nuxt"
+    "url": "https://github.com/contentstack/kickstart-nuxt"
   },
-  "description": "contentstack-implementation-guide-nuxt",
-  "author": "Tim Benniks <tbenniks@gmail.com>",
-  "homepage": "https://timbenniks.dev",
+  "description": "Contentstack Kickstarts are the minimum amount of code needed to connect to Contentstack.",
+  "author": "Tim Benniks <tim.benniks@contentstack.com>",
+  "homepage": "https://contentstack.com",
   "license": "MIT",
   "scripts": {
     "build": "nuxt build",
@@ -19,10 +18,11 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@contentstack/delivery-sdk": "^4.4.3",
-    "@contentstack/live-preview-utils": "^3.0.2",
-    "@nuxtjs/tailwindcss": "^6.12.2",
-    "nuxt": "^3.14.1592",
+    "@contentstack/delivery-sdk": "^4.6.1",
+    "@contentstack/live-preview-utils": "^3.1.2",
+    "@nuxtjs/tailwindcss": "^6.13.2",
+    "@timbenniks/contentstack-endpoints": "^1.0.8",
+    "nuxt": "^3.16.2",
     "vue": "latest",
     "vue-router": "latest"
   }

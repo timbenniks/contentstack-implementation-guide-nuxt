@@ -3,6 +3,7 @@ import contentstack, { Region } from "@contentstack/delivery-sdk"
 
 // Import the Contentstack Live Preview utility and the IStackSdk type
 import ContentstackLivePreview, { type IStackSdk } from "@contentstack/live-preview-utils";
+import { getContentstackEndpoints, getRegionForString } from "@timbenniks/contentstack-endpoints";
 
 // Destructure the necessary configuration values from the Nuxt app's public configuration
 export default defineNuxtPlugin((nuxtApp) => {
@@ -15,17 +16,18 @@ export default defineNuxtPlugin((nuxtApp) => {
     preview
   } = nuxtApp.$config.public;
 
-  // Initialize the Contentstack stack with the provided configuration values
+  const regionEnum: Region = getRegionForString(region)
+  const endpoints = getContentstackEndpoints(regionEnum, true)
+
   const stack = contentstack.stack({
-    apiKey, // API key for Contentstack
-    deliveryToken, // Delivery token for accessing published content
-    environment, // Environment name (e.g., 'development', 'production')
-    region: region === 'EU' ? Region.EU : Region.US, // Ternary operator to set the Contentstack API region to EU or US
-    // Enable live preview if the preview mode is enabled
+    apiKey,
+    deliveryToken,
+    environment,
+    region: regionEnum,
     live_preview: {
       enable: preview ? true : false,
       preview_token: previewToken,
-      host: region === 'EU' ? "eu-rest-preview.contentstack.com" : "rest-preview.contentstack.com",
+      host: endpoints.preview
     }
   });
   // Check if preview mode is enabled and if the code is running on the client-side
@@ -41,10 +43,11 @@ export default defineNuxtPlugin((nuxtApp) => {
         environment: environment, // Environment name (e.g., 'development', 'production')
       },
       clientUrlParams: {
-        host: region === "EU" ? "eu-app.contentstack.com" : "app.contentstack.com",
+        host: endpoints.application
       },
       editButton: {
-        enable: true, // Enable the edit button for live preview
+        enable: true,
+        exclude: ["outsideLivePreviewPortal"]
       }
     });
   }

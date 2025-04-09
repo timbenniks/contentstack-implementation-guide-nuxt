@@ -12,10 +12,10 @@ export default defineNuxtConfig({
     compatibilityVersion: 4, // Set the compatibility version to 4
   },
 
-  // Include Nuxt modules
-  modules: ['@nuxtjs/tailwindcss'], // Add Tailwind CSS module for styling
-
-  // Define runtime configuration
+  modules: ['@nuxtjs/tailwindcss'],
+  build: {
+    transpile: ['@timbenniks/contentstack-endpoints']
+  },
   runtimeConfig: {
     public: {
       // Public configuration values, accessible in the client-side code

@@ -34,8 +34,8 @@ onMounted(() => {
       <img
         v-if="page?.image"
         class="mb-4"
-        width="640"
-        height="360"
+        width="768"
+        height="414"
         :src="page?.image.url"
         :alt="page?.image.title"
         v-bind="page?.image?.$ && page?.image?.$.url"
@@ -49,11 +49,11 @@ onMounted(() => {
 
       <div
         :class="[
-          'space-y-8 max-w-screen-sm mt-4',  // Base classes for spacing and width
-          !page?.blocks || page.blocks.length === 0 
-            ? VB_EmptyBlockParentClass // Add the empty block parent class if no blocks are present
-            : '', // Otherwise, no additional class
-      ]"
+          'space-y-8 max-w-full mt-4',
+          !page?.blocks || page.blocks.length === 0
+            ? VB_EmptyBlockParentClass
+            : '',
+        ]"
         v-bind="page?.$ && page?.$.blocks"
       >
 
@@ -62,8 +62,7 @@ onMounted(() => {
           :key="item.block._metadata.uid"
           v-bind="page?.$ && page?.$[`blocks__${index}`]"
           :class="[
-            // Additional classes for each block based on block layout
-            'flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4 bg-slate-100',
+            'flex flex-col md:flex-row items-center space-y-4 md:space-y-0 bg-white',
             item.block.layout === 'image_left'
               ? 'md:flex-row'
               : 'md:flex-row-reverse',
@@ -81,7 +80,7 @@ onMounted(() => {
               v-bind="item.block.$ && item.block.$.image"
             />
           </div>
-          <div class="w-full md:w-1/2">
+          <div class="w-full md:w-1/2 p-4">
             <h2
               v-if="item.block.title"
               class="text-2xl font-bold"
@@ -101,3 +100,13 @@ onMounted(() => {
     </section>
   </main>
 </template>
+
+<style>
+body {
+  background: #e9e9e9;
+}
+
+a {
+  text-decoration: underline;
+}
+</style>
