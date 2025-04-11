@@ -1,3 +1,22 @@
+/**
+ * Retrieve Contentstack Page Data
+ * 
+ * This composable fetches and manages page data from Contentstack CMS using Nuxt's composables.
+ * It supports both regular content delivery and live preview functionality.
+ * 
+ * Features:
+ * - Fetches page content based on URL parameter
+ * - Supports Contentstack Live Preview mode
+ * - Handles data fetching with Nuxt's useAsyncData
+ * - Implements type-safe Contentstack queries
+ * - Adds editable tags for content management
+ * 
+ * Usage:
+ * const { data, status, refresh } = await useGetPage("/about");
+ * 
+ * Note: This composable automatically handles preview mode when the 'live_preview' query parameter is present.
+ */
+
 import contentstack, { QueryOperation, type LivePreviewQuery } from "@contentstack/delivery-sdk"; // Imports from the Contentstack Content Delivery SDK
 import type { Page } from "~/types"; // Import the Page type from the types file
 
